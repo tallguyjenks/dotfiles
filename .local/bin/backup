@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+# Create a backup of Home Directory without .cache
+cd $HOME
+sudo rsync -aAXvz /home/bryan /mnt/ --delete --exclude=.cache/ --exclude=.vscode-oss/ --exclude=.local/share/vifm/Trash/ --exclude=Youtube --exclude=go/ --exclude=.mozilla/

@@ -1,0 +1,42 @@
+#  _   _                   ____              _     ____  ____ ____
+# | \ | | _____      _____| __ )  ___   __ _| |_  |  _ \/ ___/ ___|
+# |  \| |/ _ \ \ /\ / / __|  _ \ / _ \ / _` | __| | |_) \___ \___ \
+# | |\  |  __/\ V  V /\__ \ |_) | (_) | (_| | |_  |  _ < ___) |__) |
+# |_| \_|\___| \_/\_/ |___/____/ \___/ \__,_|\__| |_| \_\____/____/
+
+# (Luke Smith)
+http://lukesmith.xyz/rss.xml "(Blog)"
+https://notrelated.libsyn.com/rss "(Podcast)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)" "Tech" "Linux" "(Youtube)"
+
+
+# (Twitter)
+http://twitrss.me/twitter_user_to_rss/?user=jess_hice "(Twitter)" "Friend"
+http://twitrss.me/twitter_user_to_rss/?user=chiuwilliam "(Twitter)" "Data Science" "R"
+http://twitrss.me/twitter_user_to_rss/?user=KalleHallden "(Twitter)" "Software Engineering"
+http://twitrss.me/twitter_user_to_rss/?user=hellomayuko "(Twitter)" "Software Engineering"
+http://twitrss.me/twitter_user_to_rss/?user=RealBisqwit "(Twitter)" "Software Engineering"
+http://twitrss.me/twitter_user_to_rss/?user=xieyihui "(Twitter)" "R" "Data Science"
+http://twitrss.me/twitter_user_to_rss/?user=igor_chubin "(Twitter)" "Software Engineering"
+http://twitrss.me/twitter_user_to_rss/?user=hadleywickham "(Twitter)" "Data Science" "R"
+http://twitrss.me/twitter_user_to_rss/?user=HoopleHeadUSA "(Twitter)" "Friend"
+http://twitrss.me/twitter_user_to_rss/?user=ProtonMail "(Twitter)" "Tech"
+
+# (Blogs)
+https://www.archlinux.org/feeds/news/ "Tech" "Linux"
+https://www.r-bloggers.com/feed "~R-Bloggers" "(Blog)" "R" "Data Science" "Software Engineering"
+https://www.artofmanliness.com/articles/feed/ "~The Art of Manliness (Blog)" "(Blog)" "Manliness"
+https://martinctc.github.io/blog/feed.xml "~Martin Chan - Musings on R" "(Blog)" "R" "Data Science"
+https://waitbutwhy.com/feed "~Wait But Why" "(Blog)"
+https://hilaryparker.com/contact-hilary-parker/rss "~Hilary Parker - Not So Standard Deviations" "(Blog)" "R" "Data Science" "Tech" "Software Engineering"
+https://rubberduckvba.wordpress.com/author/rubberduckvba/feed "~RubberduckVBA" "(Blog)" "Tech" "Programming" "Software Engineering"
+https://blog.cleancoder.com/atom.xml "~Robert C. Martin" "(Blog)" "Tech" "Software Engineering"
+https://news.ropensci.org/feed.xml "~ROpenSci" "(Blog)" "Software Engineering" "R" "Data Science" "Tech"
+
+# (Podcasts)
+https://rss.art19.com/art-of-manliness "~The Art Of Manliness (Podcast)" "Maniliness" "(Podcast)"
+
+# Self
+https://www.bryanjenks.xyz/rss.xml "(Blog)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfhSB16X9MXhzSFe_H7XbHg "~My Youtube" "(YouTube)"
+http://twitrss.me/twitter_user_to_rss/?user=Tall_Viking "(Twitter)"

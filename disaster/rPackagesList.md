@@ -10,6 +10,7 @@ DT,
 here,
 htmltools,
 knitr,
+lintr,
 lubridate,
 patchwork,
 plotly,
@@ -26,5 +27,6 @@ tinytex,
 todor,
 tufte,
 vitae,
-vroom
+vroom,
+ymlthis
 )

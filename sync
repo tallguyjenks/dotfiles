@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+if [ -e $HOME/.Rprofile ]; then cp $HOME/.Rprofile . && echo "Success copying .Rprofile"; else echo "failed"; fi
+if [ -d $HOME/.abook ]; then cp -r $HOME/.abook . && echo "Success copying .abook"; else echo "failed"; fi
+if [ -e $HOME/.profile ]; then cp $HOME/.profile . && echo "Success copying .profile"; else echo "failed"; fi
+if [ -e $HOME/.gitconfig ]; then cp $HOME/.gitconfig . && echo "Success copying .gitconfig"; else echo "failed"; fi
+if [ -e $HOME/.bashrc ]; then cp $HOME/.bashrc . && echo "success copying .bashrc"; else echo "failed"; fi
+if [ -e $HOME/.bash_profile ]; then cp $HOME/.bash_profile . && echo "Success copying .bash_profile"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/autocomp ]; then cp $HOME/.local/bin/autocomp ./.local/bin/ && echo "Success Copying autocomp.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/compiler ]; then cp $HOME/.local/bin/compiler ./.local/bin/ && echo "Success Copying compiler.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/backup ]; then cp $HOME/.local/bin/backup ./.local/bin/ && echo "Success Copying backup.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/email ]; then cp $HOME/.local/bin/email ./.local/bin/ && echo "Success Copying email.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/getbib ]; then cp $HOME/.local/bin/getbib ./.local/bin/ && echo "Success Copying getbib.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/opout ]; then cp $HOME/.local/bin/opout ./.local/bin/ && echo "Success Copying opout.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/tossTrash ]; then cp $HOME/.local/bin/tossTrash ./.local/bin/ && echo "Success Copying tossTrash.sh"; else echo "failed"; fi
+if [ -e $HOME/.config/aliasrc ]; then cp $HOME/.config/aliasrc ./.config/ && echo "Success Copying aliasrc"; else echo "failed"; fi
+if [ -d $HOME/.config/calcurse ]; then cp -r $HOME/.config/calcurse ./.config/ && echo "Success Copying calcurse"; else echo "failed"; fi
+if [ -d $HOME/.config/newsboat ]; then cp -r $HOME/.config/newsboat ./.config/ && echo "Success Copying newsboat"; else echo "failed"; fi
+if [ -d $HOME/.config/nvim ]; then cp -r $HOME/.config/nvim ./.config/ && echo "Success Copying nvim"; else echo "failed"; fi
+if [ -d $HOME/.config/taskell ]; then cp -r $HOME/.config/taskell ./.config/ && echo "Success Copying taskell"; else echo "failed"; fi
+#if [ -e $HOME/.config/ ]; then cp $HOME/.config/ $HOME/.config/ && echo "Success Copying "
