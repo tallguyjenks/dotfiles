@@ -17,6 +17,6 @@ if [ -e $HOME/.local/bin/randomman ]; then cp $HOME/.local/bin/randomman ./.loca
 if [ -e $HOME/.config/aliasrc ]; then cp $HOME/.config/aliasrc ./.config/ && echo "Success Copying aliasrc"; else echo "failed"; fi
 if [ -d $HOME/.config/calcurse ]; then cp -r $HOME/.config/calcurse ./.config/ && echo "Success Copying calcurse"; else echo "failed"; fi
 if [ -d $HOME/.config/newsboat ]; then cp -r $HOME/.config/newsboat ./.config/ && echo "Success Copying newsboat"; else echo "failed"; fi
-if [ -d $HOME/.config/nvim ]; then cp -r $HOME/.config/nvim ./.config/ && echo "Success Copying nvim"; else echo "failed"; fi
+if [ -e $HOME/.config/nvim/init.vim ]; then cp -r $HOME/.config/nvim/init.vim ./.config/nvim/ && echo "Success Copying nvim"; else echo "failed"; fi
 if [ -d $HOME/.config/taskell ]; then cp -r $HOME/.config/taskell ./.config/ && echo "Success Copying taskell"; else echo "failed"; fi
 #if [ -e $HOME/.config/ ]; then cp $HOME/.config/ $HOME/.config/ && echo "Success Copying "
