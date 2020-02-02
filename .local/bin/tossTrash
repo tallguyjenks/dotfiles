@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
-
 # clear out the VIFM trash bin that holds a bunch of crap and bloats up the system
 
+set -euo pipefail
 
-sudo rm -r $HOME/.local/share/vifm/Trash/*
+rm -r $HOME/.local/share/vifm/Trash/*
 
