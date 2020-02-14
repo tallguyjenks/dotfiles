@@ -2,7 +2,7 @@
 library(magrittr)
 
 # Set R-Console Prompt
-options(prompt="|R|-->",continue = '...')
+options(prompt="[R]==>",continue = '...')
 
 # Clear The Console Of All Ininital Output & Welcome Message
 cat("\014")

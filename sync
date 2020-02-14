@@ -15,6 +15,7 @@ if [ -e $HOME/.local/bin/opout ]; then cp $HOME/.local/bin/opout ./.local/bin/ &
 if [ -e $HOME/.local/bin/tossTrash ]; then cp $HOME/.local/bin/tossTrash ./.local/bin/ && echo "Success Copying tossTrash.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/randomman ]; then cp $HOME/.local/bin/randomman ./.local/bin/ && echo "Success Copying randomman.sh"; else echo "failed"; fi
 if [ -e $HOME/.config/aliasrc ]; then cp $HOME/.config/aliasrc ./.config/ && echo "Success Copying aliasrc"; else echo "failed"; fi
+if [ -e $HOME/.config/joplin/keymap.json ]; then cp $HOME/.config/joplin/keymap.json ./.config/joplin/ && echo "Success Copying Joplin"; else echo "failed"; fi
 if [ -d $HOME/.config/calcurse ]; then cp -r $HOME/.config/calcurse ./.config/ && echo "Success Copying calcurse"; else echo "failed"; fi
 if [ -d $HOME/.config/newsboat ]; then cp -r $HOME/.config/newsboat ./.config/ && echo "Success Copying newsboat"; else echo "failed"; fi
 if [ -e $HOME/.config/nvim/init.vim ]; then cp -r $HOME/.config/nvim/init.vim ./.config/nvim/ && echo "Success Copying nvim"; else echo "failed"; fi
