@@ -4,4 +4,5 @@
 set -euo pipefail
 
 rm -r $HOME/.local/share/vifm/Trash/*
+rm -r $HOME/.local/share/Trash/*
 

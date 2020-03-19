@@ -1,6 +1,11 @@
 let mapleader =","
 
-set foldmethod=expr
+" Enable Folding
+set foldmethod=indent "expr
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+
 
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."

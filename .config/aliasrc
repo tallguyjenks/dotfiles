@@ -16,7 +16,7 @@ alias ka="killall" \
 	gua="git remote | xargs -L1 git push --all" \
 	ls="ls -hNA --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
-	diff="diff --color=auto" \
+	diff="diff -y -i -w -B --color" \
 	ccat="highlight --out-format=ansi" \
 	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
 	yta="yt -x -f bestaudio/best" \
@@ -37,18 +37,20 @@ function taskTag(){
 	task $1 modify +$2
 }
 
-alias ls=lsd \
-	ll="ls -l -A" \
-	ta="task add $1" \
-	report="task burndown.daily" \
-	t="task list" \
-	h="cd $HOME && taskell"
-	tpro=taskproject \
-	tt=taskTag \
-	scim=sc-im \
-	tellico=$HOME/.local/bin/tools/tellico \
-	jn="jupyter notebook" \
-	bib="vim $HOME/Documents/bib/uni.bib"
+alias ls=lsd
+alias ll="ls -l -A"
+alias ta="task add $1"
+alias report="task burndown.daily"
+alias t="task list"
+alias h="cd $HOME && taskell"
+alias tpro=taskproject
+alias tt=taskTag
+alias scim=sc-im
+alias jn="jupyter notebook"
+alias bib="vim $HOME/Documents/bib/uni.bib"
+alias roth="roth | grep The"
+alias py=bpython
+alias python=bpython
 
 # end my custom alias's and functions
 

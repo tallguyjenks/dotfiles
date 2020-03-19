@@ -1,8 +1,8 @@
 # Import The Pipe Because It's Essential
-library(magrittr)
+invisible(library(magrittr))
 
 # Set R-Console Prompt
-options(prompt="[R]==>",continue = '...')
+options(prompt=">",continue = '...')
 
 # Clear The Console Of All Ininital Output & Welcome Message
 cat("\014")

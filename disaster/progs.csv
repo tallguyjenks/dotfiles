@@ -41,3 +41,7 @@ A,https://aur.archlinux.org/vim-live-latex-preview.git,Live Preview of LaTeX Doc
 A,glow,pretty markdown in the terminal
 ,otf-fira-code,ligature font for vscode and rstudio font ligatures
 ,lsd,rust based ls command but better
+A,pastel,color info on hexcodes in terminal
+A,mendeley,academic reference manager and reader
+A,tig-git,ncurses git stuff that is helpful
+,,
