@@ -38,7 +38,7 @@ function taskTag(){
 }
 
 alias ls=lsd
-alias ll="ls -l -a"
+alias ll="ls -l -A"
 alias ta="task add $1"
 alias report="task burndown.daily"
 alias t="task list"

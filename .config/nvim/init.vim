@@ -137,10 +137,10 @@ call plug#end()
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 	let NERDTreeShowHidden=1 				" Shows hidden files
 	let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp'] 	" Do not display some useless files in the tree:
+	set guifont=otf-fira-code 				" Make it so the Devicons plugin displays correctly in nerdtree
 " ~~~~~ Always open the tree when booting Vim, but don’t focus it:
 	"autocmd VimEnter * NERDTree
 	"autocmd VimEnter * wincmd p
-	set guifont=nerd-fonts-source-code-pro	" Make it so the Devicons plugin displays correctly in nerdtree
 
 "=================================="
 "       Split Management	   "
