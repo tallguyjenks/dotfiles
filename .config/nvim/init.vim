@@ -18,6 +18,7 @@ Plug 'ryanoasis/vim-devicons'			" NerdTree Icons for filetypes
 Plug 'airblade/vim-gitgutter'			" Git code line change icons
 Plug 'vim-scripts/restore_view.vim'		" Remember code folds and cursor position
 Plug 'junegunn/goyo.vim' 			" Focus Mode
+Plug 'junegunn/limelight.vim' 			" Limelight - Additional Focus mode stuff with Goyo
 Plug 'bling/vim-airline' 			" Airline Status bar Vim
 Plug 'vifm/vifm.vim'				" Allows use of vifm as a file picker
 Plug 'godlygeek/tabular' 			" Markdown Tables
@@ -73,8 +74,9 @@ call plug#end()
 	set nocompatible 			" Dont worry about VI compatability, do yo thang
 	set encoding=utf-8 			" Use an encoding that supports unicode.
 	set number relativenumber 		" line numbers and relative line numbers
+	set tabstop=4				" Sets tabs = 4 spaces
 	filetype plugin on 			" File type detection
-	syntax on 				" Turn on syntax highlighting
+	"syntax on 				" Turn on syntax highlighting
 
 " ~~~~~ This maps CTRL-C to T-popes commentary for commenting out any code
 	map <C-c> gcc
@@ -127,6 +129,37 @@ call plug#end()
 	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 	map <leader><leader> <Esc>/<++><Enter>"_c4l
+
+"=================================="
+"      	     LimeLight 	   	   "
+"=================================="
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.7
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 1
+
+" Beginning/end of paragraph
+" When there's no empty line between the paragraphs
+" and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+" Highlighting priority (default: 10)
+" Set it to -1 not to overrule hlsearch
+let g:limelight_priority = -1
+
+" Integration with goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 "=================================="
 "       Nerd Tree Section 	   "
