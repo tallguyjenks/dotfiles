@@ -51,7 +51,20 @@ call plug#end()
 	set foldmethod=indent "expr
 	set foldlevel=99
 " ~~~~~ Enable folding with the spacebar
-	nnoremap <space> za
+	nnoremap <C-Space> za
+
+"=================================="
+"          Pair Matching   	   "
+"=================================="
+
+" ~~~~~ Creating Pairs
+	inoremap { {}<++><Esc>F{a
+	inoremap [ []<++><Esc>F[a
+	inoremap ( ()<++><Esc>F(a
+	inoremap < <><++><Esc>F<F<a
+	inoremap ` ``<++><Esc>F`i
+	inoremap " ""<++><Esc>F"i
+	inoremap ' ''<++><Esc>F'i
 
 "=================================="
 "          Miscellaneous	   "
@@ -74,9 +87,12 @@ call plug#end()
 	set nocompatible 			" Dont worry about VI compatability, do yo thang
 	set encoding=utf-8 			" Use an encoding that supports unicode.
 	set number relativenumber 		" line numbers and relative line numbers
-	set tabstop=4				" Sets tabs = 4 spaces
+	set tabstop=4       			" The width of a TAB is set to 4.
+	set shiftwidth=4    			" Indents will have a width of 4
+	set softtabstop=4   			" Sets the number of columns for a TAB
+	set expandtab       			" Expand TABs to spaces
 	filetype plugin on 			" File type detection
-	"syntax on 				" Turn on syntax highlighting
+	syntax on 				" Turn on syntax highlighting
 
 " ~~~~~ This maps CTRL-C to T-popes commentary for commenting out any code
 	map <C-c> gcc
@@ -319,7 +335,7 @@ autocmd! User GoyoLeave Limelight!
 	autocmd Filetype markdown,[rR]md inoremap <leader>sup ^^<++><Esc>F^i
 	autocmd Filetype markdown,[rR]md inoremap <leader>fn ^[]<Esc>F[a
 	autocmd Filetype markdown,[rR]md inoremap <leader>i **<++><Esc>F*i
-	autocmd Filetype markdown,[rR]md inoremap <leader>[ [](<++>)<Space><++><Esc>F[a
+	autocmd Filetype markdown,[rR]md inoremap <leader>l [](<++>)<Space><++><Esc>F[a
 	autocmd Filetype markdown,[rR]md inoremap <leader>1 #<Space><CR><CR><++><Esc>2kA
 	autocmd Filetype markdown,[rR]md inoremap <leader>2 ##<Space><CR><CR><++><Esc>2kA
 	autocmd Filetype markdown,[rR]md inoremap <leader>3 ###<Space><CR><CR><++><Esc>2kA
