@@ -9,31 +9,43 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
-Plug 'PotatoesMaster/i3-vim-syntax' 		" i3 Config Syntax highlighting
-Plug 'kovetskiy/sxhkd-vim'			" sxhkd Config file syntax highlighting
-Plug 'scrooloose/nerdtree' 			" NerdTree File Tree
-Plug 'Xuyuanp/nerdtree-git-plugin'		" NerdTree Show Git Status Icons in Nerd Tree
-Plug 'ryanoasis/vim-devicons'			" NerdTree Icons for filetypes
-Plug 'airblade/vim-gitgutter'			" Git code line change icons
-Plug 'vim-scripts/restore_view.vim'		" Remember code folds and cursor position
-Plug 'junegunn/goyo.vim' 			" Focus Mode
-Plug 'junegunn/limelight.vim' 			" Limelight - Additional Focus mode stuff with Goyo
-Plug 'bling/vim-airline' 			" Airline Status bar Vim
-Plug 'vifm/vifm.vim'				" Allows use of vifm as a file picker
-Plug 'godlygeek/tabular' 			" Markdown Tables
-Plug 'mhinz/vim-startify' 			" Start screen for vim
-Plug 'tpope/vim-commentary' 			" T-Pope / Comment out code in a variety of langs
-Plug 'tpope/vim-surround' 			" T-Pope / Change surrounding tags, characters, quotes, etc.
-Plug 'tpope/vim-markdown' 			" T-Pope / For markdown fenced langs syntax highlighting
-Plug 'vim-pandoc/vim-rmarkdown' 		" RMarkdown Docs in Vim
-Plug 'vim-pandoc/vim-pandoc' 			" RMarkdown Docs in Vim
-Plug 'vim-pandoc/vim-pandoc-syntax' 		" RMarkdown Docs in Vim
-Plug 'ying17zi/vim-live-latex-preview' 		" LaTeX Compiling Live
-Plug 'vimwiki/vimwiki' 				" Dont Really Use Vimwiki much anymore
-"Plug 'neoclide/coc.nvim',{'branch': 'release'} " Code Completion
-"Plug 'rust-lang/rust.vim'			" Full Rust language support
-" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
+	" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
+		"{{{ General Vim & Sys Utils }}}
+			Plug 'mhinz/vim-startify' 			" Start screen for vim
+			Plug 'vifm/vifm.vim'				" Allows use of vifm as a file picker
+			Plug 'vim-scripts/restore_view.vim'		" Remember code folds and cursor position
+			Plug 'bling/vim-airline' 			" Airline Status bar Vim
+			Plug 'PotatoesMaster/i3-vim-syntax' 		" i3 Config Syntax highlighting
+			Plug 'kovetskiy/sxhkd-vim'			" sxhkd Config file syntax highlighting
+		"{{{ GoYo Focus Section }}}
+			Plug 'junegunn/goyo.vim' 			" Focus Mode
+			Plug 'junegunn/limelight.vim' 			" Limelight - Additional Focus mode stuff with Goyo
+		"{{{ NerdTree Section }}}
+			Plug 'scrooloose/nerdtree' 			" NerdTree File Tree
+			Plug 'Xuyuanp/nerdtree-git-plugin'		" NerdTree Show Git Status Icons in Nerd Tree
+			Plug 'ryanoasis/vim-devicons'			" NerdTree Icons for filetypes
+		"{{{ T-Pope Section }}}
+			Plug 'tpope/vim-commentary' 			" T-Pope / Comment out code in a variety of langs
+			Plug 'tpope/vim-surround' 			" T-Pope / Change surrounding tags, characters, quotes, etc.
+			Plug 'tpope/vim-markdown' 			" T-Pope / For markdown fenced langs syntax highlighting
+		"{{{ Rmarkdown Section }}}
+			Plug 'vim-pandoc/vim-rmarkdown' 		" RMarkdown Docs in Vim
+			Plug 'vim-pandoc/vim-pandoc' 			" RMarkdown Docs in Vim
+			Plug 'vim-pandoc/vim-pandoc-syntax' 		" RMarkdown Docs in Vim
+			Plug 'godlygeek/tabular' 			" Markdown Tables
+		"{{{ Camspiers Section }}}
+			Plug 'camspiers/lens.vim'			" Automatic Window Re-sizing
+			Plug 'camspiers/animate.vim'			" Windo Re-size Animation
+		"{{{ GIT }}}
+			Plug 'airblade/vim-gitgutter'			" Git code line change icons
+		"{{{ LaTeX }}}
+			Plug 'ying17zi/vim-live-latex-preview' 		" LaTeX Compiling Live
+		"{{{ Other }}}
+			Plug 'vimwiki/vimwiki' 				" Dont Really Use Vimwiki much anymore
+		"{{{ Deactivated }}}
+			"Plug 'neoclide/coc.nvim',{'branch': 'release'} " Code Completion
+			"Plug 'rust-lang/rust.vim'			" Full Rust language support
+	" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
 call plug#end()
 
 "=================================="
@@ -48,10 +60,10 @@ call plug#end()
 "=================================="
 
 " ~~~~~ Enable Tabbed Code Folding
-	set foldmethod=indent "expr
+	set foldmethod=indent
 	set foldlevel=99
 " ~~~~~ Enable folding with the spacebar
-	nnoremap <C-Space> za
+	nnoremap <Space> za
 
 "=================================="
 "          Pair Matching   	   "
@@ -76,7 +88,16 @@ call plug#end()
 	nnoremap S :%s//g<Left><Left>
 " ~~~~~ Black hole registry https://bit.ly/2WARts6
 	nnoremap c "_c
-
+" ~~~~~ DIFF-ing in Vim
+	nnoremap <leader>d :windo diffthis<CR>
+	nnoremap <leader>D :windo diffoff<CR>
+	"Turns off highlighting on the bits of code that are changed,
+	"so the line that is changed is highlighted but the actual text
+	"that has changed stands out on the line and is readable.
+	if &diff
+	    highlight! link DiffText MatchParen
+	endif
+" ~~~~~ Additional Options
 	set autoindent 				" New lines inherit indentation of preceding lines
 	set bg=light 				" Use colors that suit a dark background
 	set go=a				" Hide GuiOptions
@@ -119,12 +140,6 @@ call plug#end()
 	vnoremap <down> <nop>
 	vnoremap <left> <nop>
 	vnoremap <right> <nop>
-" ~~~~~ Turns off highlighting on the bits of code that are changed,
-" ~~~~~ so the line that is changed is highlighted but the actual text
-" ~~~~~ that has changed stands out on the line and is readable.
-	if &diff
-	    highlight! link DiffText MatchParen
-	endif
 " ~~~~~ Enable autocompletion:
 	set wildmode=longest,list,full
 " ~~~~~ Disables automatic commenting on newline:
@@ -150,32 +165,32 @@ call plug#end()
 "      	     LimeLight 	   	   "
 "=================================="
 " Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
+	let g:limelight_conceal_ctermfg = 'gray'
+	let g:limelight_conceal_ctermfg = 240
 
 " Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
+	let g:limelight_conceal_guifg = 'DarkGray'
+	let g:limelight_conceal_guifg = '#777777'
 
 " Default: 0.5
-let g:limelight_default_coefficient = 0.7
+	let g:limelight_default_coefficient = 0.7
 
 " Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 1
+	let g:limelight_paragraph_span = 1
 
 " Beginning/end of paragraph
 " When there's no empty line between the paragraphs
 " and each paragraph starts with indentation
-let g:limelight_bop = '^\s'
-let g:limelight_eop = '\ze\n^\s'
+	let g:limelight_bop = '^\s'
+	let g:limelight_eop = '\ze\n^\s'
 
 " Highlighting priority (default: 10)
 " Set it to -1 not to overrule hlsearch
-let g:limelight_priority = -1
+	let g:limelight_priority = -1
 
 " Integration with goyo
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+	autocmd! User GoyoEnter Limelight
+	autocmd! User GoyoLeave Limelight!
 
 "=================================="
 "       Nerd Tree Section 	   "
@@ -210,9 +225,9 @@ autocmd! User GoyoLeave Limelight!
 "=================================="
 
 " ~~~~~ Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler <c-r>%<CR>
+	map <leader>c :w! \| !compiler <c-r>%<CR><CR>
 " ~~~~~ Turn on Autocompiler mode
-	map <leader>a :!setsid autocomp % &<CR>
+	map <leader>a :!setsid autocomp % <c-r>&<CR>
 " ~~~~~ Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
 " ~~~~~ Runs a script that cleans out tex build files whenever I close out of a .tex file.
@@ -256,13 +271,15 @@ autocmd! User GoyoLeave Limelight!
 " ~~~~~ Word count:
 	autocmd FileType tex map <leader>w :w !detex \| wc -w<CR>
 " ~~~~~ Code snippets
+	autocmd FileType tex inoremap ,i \textit{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,e \emph{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,b \textbf{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,u \underline{}<++><Esc>T{i
+
 	autocmd FileType tex inoremap ,fr \begin{frame}<CR>\frametitle{}<CR><CR><++><CR><CR>\end{frame}<CR><CR><++><Esc>6kf}i
 	autocmd FileType tex inoremap ,fi \begin{fitch}<CR><CR>\end{fitch}<CR><CR><++><Esc>3kA
 	autocmd FileType tex inoremap ,exe \begin{exe}<CR>\ex<Space><CR>\end{exe}<CR><CR><++><Esc>3kA
-	autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,bf \textbf{}<++><Esc>T{i
 	autocmd FileType tex vnoremap , <ESC>`<i\{<ESC>`>2la}<ESC>?\\{<CR>a
-	autocmd FileType tex inoremap ,it \textit{}<++><Esc>T{i
 	autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
 	autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
 	autocmd FileType tex inoremap ,glos {\gll<Space><++><Space>\\<CR><++><Space>\\<CR>\trans{``<++>''}}<Esc>2k2bcw
@@ -284,8 +301,8 @@ autocmd! User GoyoLeave Limelight!
 	autocmd FileType tex inoremap ,sssec \subsubsection{}<CR><CR><++><Esc>2kf}i
 	autocmd FileType tex inoremap ,st <Esc>F{i*<Esc>f}i
 	autocmd FileType tex inoremap ,beg \begin{DELRN}<CR><++><CR>\end{DELRN}<CR><CR><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<CR>c
-	autocmd FileType tex inoremap ,up <Esc>/usepackage<CR>o\usepackage{}<Esc>i
-	autocmd FileType tex nnoremap ,up /usepackage<CR>o\usepackage{}<Esc>i
+	autocmd FileType tex inoremap ,up <Esc>/usepackage<CR>o\usepackage{}<++><Esc>F{a
+	autocmd FileType tex nnoremap ,up /usepackage<CR>o\usepackage{}<++><Esc>F{a
 	autocmd FileType tex inoremap ,tt \texttt{}<Space><++><Esc>T{i
 	autocmd FileType tex inoremap ,bt {\blindtext}
 	autocmd FileType tex inoremap ,nu $\varnothing$
