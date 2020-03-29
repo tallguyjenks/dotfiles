@@ -6,8 +6,8 @@ if [ -e $HOME/.profile ]; then cp $HOME/.profile . && echo "Success copying .pro
 if [ -e $HOME/.gitconfig ]; then cp $HOME/.gitconfig . && echo "Success copying .gitconfig"; else echo "failed"; fi
 if [ -e $HOME/.bashrc ]; then cp $HOME/.bashrc . && echo "success copying .bashrc"; else echo "failed"; fi
 if [ -e $HOME/.bash_profile ]; then cp $HOME/.bash_profile . && echo "Success copying .bash_profile"; else echo "failed"; fi
-if [ -e $HOME/.local/bin/autocomp ]; then cp $HOME/.local/bin/autocomp ./.local/bin/ && echo "Success Copying autocomp.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/academics ]; then cp $HOME/.local/bin/academics ./.local/bin/ && echo "Success Copying academics.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/autocomp ]; then cp $HOME/.local/bin/autocomp ./.local/bin/ && echo "Success Copying autocomp.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/compiler ]; then cp $HOME/.local/bin/compiler ./.local/bin/ && echo "Success Copying compiler.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/backup ]; then cp $HOME/.local/bin/backup ./.local/bin/ && echo "Success Copying backup.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/email ]; then cp $HOME/.local/bin/email ./.local/bin/ && echo "Success Copying email.sh"; else echo "failed"; fi
@@ -15,6 +15,7 @@ if [ -e $HOME/.local/bin/getbib ]; then cp $HOME/.local/bin/getbib ./.local/bin/
 if [ -e $HOME/.local/bin/opout ]; then cp $HOME/.local/bin/opout ./.local/bin/ && echo "Success Copying opout.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/tossTrash ]; then cp $HOME/.local/bin/tossTrash ./.local/bin/ && echo "Success Copying tossTrash.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/randomman ]; then cp $HOME/.local/bin/randomman ./.local/bin/ && echo "Success Copying randomman.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/vidcut ]; then cp $HOME/.local/bin/vidcut ./.local/bin/ && echo "Success Copying vidcut.sh"; else echo "failed"; fi
 if [ -e $HOME/.config/aliasrc ]; then cp $HOME/.config/aliasrc ./.config/ && echo "Success Copying aliasrc"; else echo "failed"; fi
 if [ -e $HOME/.config/joplin/keymap.json ]; then cp $HOME/.config/joplin/keymap.json ./.config/joplin/ && echo "Success Copying Joplin"; else echo "failed"; fi
 if [ -d $HOME/.config/calcurse ]; then cp -r $HOME/.config/calcurse ./.config/ && echo "Success Copying calcurse"; else echo "failed"; fi
