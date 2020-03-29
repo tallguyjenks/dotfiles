@@ -7,6 +7,7 @@ if [ -e $HOME/.gitconfig ]; then cp $HOME/.gitconfig . && echo "Success copying 
 if [ -e $HOME/.bashrc ]; then cp $HOME/.bashrc . && echo "success copying .bashrc"; else echo "failed"; fi
 if [ -e $HOME/.bash_profile ]; then cp $HOME/.bash_profile . && echo "Success copying .bash_profile"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/autocomp ]; then cp $HOME/.local/bin/autocomp ./.local/bin/ && echo "Success Copying autocomp.sh"; else echo "failed"; fi
+if [ -e $HOME/.local/bin/academics ]; then cp $HOME/.local/bin/academics ./.local/bin/ && echo "Success Copying academics.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/compiler ]; then cp $HOME/.local/bin/compiler ./.local/bin/ && echo "Success Copying compiler.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/backup ]; then cp $HOME/.local/bin/backup ./.local/bin/ && echo "Success Copying backup.sh"; else echo "failed"; fi
 if [ -e $HOME/.local/bin/email ]; then cp $HOME/.local/bin/email ./.local/bin/ && echo "Success Copying email.sh"; else echo "failed"; fi

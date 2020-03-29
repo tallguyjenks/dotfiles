@@ -17,7 +17,8 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 	" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
 		"{{{ General Vim & Sys Utils }}}
-			Plug 'mhinz/vim-startify' 			" Start screen for vim
+		       "Plug 'mhinz/vim-startify' 			" Start screen for vim / Doesnt Work with VimWiki
+		       	Plug 'terryma/vim-multiple-cursors'		" Multi-cursor functionality
 			Plug 'vifm/vifm.vim'				" Allows use of vifm as a file picker
 			Plug 'vim-scripts/restore_view.vim'		" Remember code folds and cursor position
 			Plug 'bling/vim-airline' 			" Airline Status bar Vim
@@ -29,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
 		"{{{ NerdTree Section }}}
 			Plug 'scrooloose/nerdtree' 			" NerdTree File Tree
 			Plug 'Xuyuanp/nerdtree-git-plugin'		" NerdTree Show Git Status Icons in Nerd Tree
+			Plug 'tiagofumo/vim-nerdtree-syntax-highlight'	"  This adds syntax for nerdtree on most common file extensions
 			Plug 'ryanoasis/vim-devicons'			" NerdTree Icons for filetypes
 		"{{{ T-Pope Section }}}
 			Plug 'tpope/vim-commentary' 			" T-Pope / Comment out code in a variety of langs
@@ -38,6 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
 			Plug 'vim-pandoc/vim-rmarkdown' 		" RMarkdown Docs in Vim
 			Plug 'vim-pandoc/vim-pandoc' 			" RMarkdown Docs in Vim
 			Plug 'vim-pandoc/vim-pandoc-syntax' 		" RMarkdown Docs in Vim
+			Plug 'masukomi/vim-markdown-folding'		" Allow folding of Markdown headers
 			Plug 'godlygeek/tabular' 			" Markdown Tables
 		"{{{ Camspiers Section }}}
 			Plug 'camspiers/lens.vim'			" Automatic Window Re-sizing
@@ -45,7 +48,8 @@ call plug#begin('~/.config/nvim/plugged')
 		"{{{ GIT }}}
 			Plug 'airblade/vim-gitgutter'			" Git code line change icons
 		"{{{ LaTeX }}}
-			Plug 'ying17zi/vim-live-latex-preview' 		" LaTeX Compiling Live
+			Plug 'ying17zi/vim-live-latex-preview'		" LaTeX Compiling Live
+			Plug 'lervag/vimtex'				" LaTeX Line Compiling?
 		"{{{ Other }}}
 			Plug 'vimwiki/vimwiki' 				" Dont Really Use Vimwiki much anymore
 		"{{{ Deactivated }}}
@@ -71,13 +75,13 @@ call plug#end()
 "          Pair Matching   	   "
 "=================================="
 	" ~~~~~ Creating Pairs
-		inoremap { {}<++><Esc>F{a
-		inoremap [ []<++><Esc>F[a
-		inoremap ( ()<++><Esc>F(a
-		inoremap < <><++><Esc>F<F<a
-		inoremap ` ``<++><Esc>F`i
-		inoremap " ""<++><Esc>F"i
-		inoremap ' ''<++><Esc>F'i
+		"inoremap { {}<++><Esc>F{a
+		"inoremap [ []<++><Esc>F[a
+		"inoremap ( ()<++><Esc>F(a
+		"inoremap < <><++><Esc>F<F<a
+		"inoremap ` ``<++><Esc>F`i
+		"inoremap " ""<++><Esc>F"i
+		"inoremap $ $$<++><Esc>F$i
 "=================================="
 "          Miscellaneous	   "
 "=================================="
@@ -157,6 +161,10 @@ call plug#end()
 		inoremap <leader><leader> <Esc>/<++><CR>"_c4l
 		vnoremap <leader><leader> <Esc>/<++><CR>"_c4l
 		map <leader><leader> <Esc>/<++><CR>"_c4l
+	" ~~~~~ Ensuring Some filetypes are read as they should be
+		autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+		autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+		autocmd BufRead,BufNewFile *.tex set filetype=tex
 "=================================="
 "      	     LimeLight 	   	   "
 "=================================="
@@ -187,7 +195,7 @@ call plug#end()
 	" ~~~~~ Open Nerdtree
 		map <leader>n :NERDTreeToggle<CR>
 		autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-		let NERDTreeShowHidden=1 				" Shows hidden files
+		"let NERDTreeShowHidden=1 				" Shows hidden files
 		let NERDTreeIgnore=['\.DS_Store', '\~$', '\.swp'] 	" Do not display some useless files in the tree:
 		set guifont=otf-fira-code 				" Make it so the Devicons plugin displays correctly in nerdtree
 	" ~~~~~ Always open the tree when booting Vim, but don’t focus it:
@@ -209,22 +217,22 @@ call plug#end()
 "       Document Compiling	   "
 "=================================="
 	" ~~~~~ Compile document, be it groff/LaTeX/markdown/etc.
-		map <leader>c :w! \| !compiler <c-r>%<CR><CR>
+		map <leader>c :w! \| !compiler <c-r>%<CR>
 	" ~~~~~ Turn on Autocompiler mode
-		map <leader>a :!setsid autocomp % <c-r>&<CR>
+		map <leader>a :!setsid autocomp % &<CR>
 	" ~~~~~ Open corresponding .pdf/.html or preview
 		map <leader>p :!opout <c-r>%<CR><CR>
 	" ~~~~~ Runs a script that cleans out tex build files whenever I close out of a .tex file.
 		autocmd VimLeave *.tex !texclear %
+	" ~~~~~ Maps the typical auto compiler key to \o which calles the
+	" ~~~~~ Vim Live Latex preview function for live preview
+		autocmd FileType tex map <leader>a \o
 "=================================="
 "             VIM WIKI	   	   "
 "=================================="
 	" ~~~~~ Ensure files are read as what I want in vimwiki:
 		let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 		let g:vimwiki_list = [{'path': '~/VimWiki', 'syntax': 'markdown', 'ext': '.md'}]
-		autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
-		autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
-		autocmd BufRead,BufNewFile *.tex set filetype=tex
 "=================================="
 "          	GOYO	   	   "
 "=================================="
@@ -248,24 +256,41 @@ call plug#end()
 
 " ~~~~~ Word count:
 	autocmd FileType tex map <leader>w :w !detex \| wc -w<CR>
-" ~~~~~ Code snippets
-	autocmd FileType tex inoremap ,i \textit{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,e \emph{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,b \textbf{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,u \underline{}<++><Esc>T{i
+" ~~~~~ Make Braces easier with LaTeX
+	autocmd FileType tex inoremap { {}<++><Esc>F{a
+" ~~~~~ Multi Cursor Begin Statement
+	autocmd FileType tex inoremap ,beg \begin{DELRN}<CR><++><CR>\end{DELRN}<CR><CR><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<CR>c
+" ~~~~~ Font Formatting:
+	autocmd FileType tex inoremap ,i \textit{}<Space><++><Esc>T{i
+	autocmd FileType tex inoremap ,e \emph{}<Space><++><Esc>T{i
+	autocmd FileType tex inoremap ,b \textbf{}<Space><++><Esc>T{i
+	autocmd FileType tex inoremap ,u \underline{}<Space><++><Esc>T{i
+" ~~~~~ Lists:
+	autocmd FileType tex inoremap ,ol \begin{enumerate}<CR><CR>\end{enumerate}<CR><CR><++><Esc>3kA\item<Space>
+	autocmd FileType tex inoremap ,ul \begin{itemize}<CR><CR>\end{itemize}<CR><CR><++><Esc>3kA\item<Space>
+	autocmd FileType tex inoremap ,li <CR>\item<Space>
+" ~~~~~ Chapter and Sections:
+	autocmd FileType tex inoremap ,ch \chapter{}<CR><CR><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,sec \section{}<CR><CR><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,ssec \subsection{}<CR><CR><++><Esc>2kf}i
+	autocmd FileType tex inoremap ,sssec \subsubsection{}<CR><CR><++><Esc>2kf}i
+" ~~~~~ Labels & References:
+	autocmd FileType tex inoremap ,lab \label{}<++><Esc>F}i
+	autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
+	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
+" ~~~~~ Citations
+	autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
+	autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
+" ~~~~~ Use Packages
+	autocmd FileType tex inoremap ,up <Esc>/usepackage<CR>o\usepackage{}<++><Esc>F{a
+	autocmd FileType tex nnoremap ,up /usepackage<CR>o\usepackage{}<++><Esc>F{a
 
 	autocmd FileType tex inoremap ,fr \begin{frame}<CR>\frametitle{}<CR><CR><++><CR><CR>\end{frame}<CR><CR><++><Esc>6kf}i
 	autocmd FileType tex inoremap ,fi \begin{fitch}<CR><CR>\end{fitch}<CR><CR><++><Esc>3kA
 	autocmd FileType tex inoremap ,exe \begin{exe}<CR>\ex<Space><CR>\end{exe}<CR><CR><++><Esc>3kA
 	autocmd FileType tex vnoremap , <ESC>`<i\{<ESC>`>2la}<ESC>?\\{<CR>a
-	autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
 	autocmd FileType tex inoremap ,glos {\gll<Space><++><Space>\\<CR><++><Space>\\<CR>\trans{``<++>''}}<Esc>2k2bcw
 	autocmd FileType tex inoremap ,x \begin{xlist}<CR>\ex<Space><CR>\end{xlist}<Esc>kA<Space>
-	autocmd FileType tex inoremap ,ol \begin{enumerate}<CR><CR>\end{enumerate}<CR><CR><++><Esc>3kA\item<Space>
-	autocmd FileType tex inoremap ,ul \begin{itemize}<CR><CR>\end{itemize}<CR><CR><++><Esc>3kA\item<Space>
-	autocmd FileType tex inoremap ,li <CR>\item<Space>
-	autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
 	autocmd FileType tex inoremap ,tab \begin{tabular}<CR><++><CR>\end{tabular}<CR><CR><++><Esc>4kA{}<Esc>i
 	autocmd FileType tex inoremap ,ot \begin{tableau}<CR>\inp{<++>}<Tab>\const{<++>}<Tab><++><CR><++><CR>\end{tableau}<CR><CR><++><Esc>5kA{}<Esc>i
 	autocmd FileType tex inoremap ,can \cand{}<Tab><++><Esc>T{i
@@ -273,20 +298,11 @@ call plug#end()
 	autocmd FileType tex inoremap ,v \vio{}<Tab><++><Esc>T{i
 	autocmd FileType tex inoremap ,a \href{}{<++>}<Space><++><Esc>2T{i
 	autocmd FileType tex inoremap ,sc \textsc{}<Space><++><Esc>T{i
-	autocmd FileType tex inoremap ,chap \chapter{}<CR><CR><++><Esc>2kf}i
-	autocmd FileType tex inoremap ,sec \section{}<CR><CR><++><Esc>2kf}i
-	autocmd FileType tex inoremap ,ssec \subsection{}<CR><CR><++><Esc>2kf}i
-	autocmd FileType tex inoremap ,sssec \subsubsection{}<CR><CR><++><Esc>2kf}i
 	autocmd FileType tex inoremap ,st <Esc>F{i*<Esc>f}i
-	autocmd FileType tex inoremap ,beg \begin{DELRN}<CR><++><CR>\end{DELRN}<CR><CR><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<CR>c
-	autocmd FileType tex inoremap ,up <Esc>/usepackage<CR>o\usepackage{}<++><Esc>F{a
-	autocmd FileType tex nnoremap ,up /usepackage<CR>o\usepackage{}<++><Esc>F{a
 	autocmd FileType tex inoremap ,tt \texttt{}<Space><++><Esc>T{i
 	autocmd FileType tex inoremap ,bt {\blindtext}
 	autocmd FileType tex inoremap ,nu $\varnothing$
 	autocmd FileType tex inoremap ,col \begin{columns}[T]<CR>\begin{column}{.5\textwidth}<CR><CR>\end{column}<CR>\begin{column}{.5\textwidth}<CR><++><CR>\end{column}<CR>\end{columns}<Esc>5kA
-	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
-
 "=================================="
 "       	HTML		   "
 "=================================="

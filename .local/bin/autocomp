@@ -3,5 +3,5 @@
 # This script will compile automatically upon save when called
 
 pkill -f "entr compiler" && exit
-echo "$1" | entr compiler "$1"
+echo $1 | entr compiler "$1"
 
