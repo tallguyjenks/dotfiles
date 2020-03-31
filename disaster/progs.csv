@@ -43,5 +43,4 @@ A,glow,pretty markdown in the terminal
 ,lsd,rust based ls command but better
 A,pastel,color info on hexcodes in terminal
 A,mendeley,academic reference manager and reader
-A,tig-git,ncurses git stuff that is helpful
-,,
+A,gita,python script for managing mass amounts of git repos
