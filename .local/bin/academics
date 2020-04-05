@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-mendeleydesktop & disown
-texstudio & disown
-JabRef & disown
