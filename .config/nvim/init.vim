@@ -13,7 +13,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
-
+"hello there youtube
 call plug#begin('~/.config/nvim/plugged')
 	" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
 		"{{{ General Vim & Sys Utils }}}
@@ -87,8 +87,6 @@ call plug#end()
 "=================================="
 "          Miscellaneous	   "
 "=================================="
-	" ~~~~~ Open terminal in split for R analysis
-		autocmd FileType * nnoremap <leader>t :vsp<CR>:terminal<CR>aR<CR>
 	" ~~~~~ Check file in shellcheck:
 		map <leader>s :!clear && shellcheck %<CR>
 	" ~~~~~ Replace all is aliased to S.
@@ -169,6 +167,7 @@ call plug#end()
 		autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 		autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 		autocmd BufRead,BufNewFile *.tex set filetype=tex
+		autocmd BufRead,BufNewFile *.[Rr]md set filetype=rmarkdown
 "=================================="
 "      	     LimeLight 	   	   "
 "=================================="
@@ -238,23 +237,19 @@ call plug#end()
 		let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 		let g:vimwiki_list = [
 					\{'path': '~/VimWiki', 'syntax': 'markdown', 'ext': '.md'},
-					\{'path':'~VimWiki/academia', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/academia/statistics', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/social', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/spirituality', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech/linux', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech/css', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech/html', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech/latex', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech/r', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech/regex', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech/rust', 'syntax': 'markdown', 'ext':'.md'},
-					\{'path':'~VimWiki/tech/python', 'syntax': 'markdown', 'ext':'.md'}]
-	" ~~~~~ Diary Template
-		autocmd FileType markdown nnoremap <leader>diary i#<Space><++><CR><CR><++><CR><CR>##<Space>DevLog<CR><CR><++><CR><CR><Esc>gg
-	" ~~~~~ This is for a vim wiki note template
-		autocmd Filetype markdown inoremap <leader>note #<Space>Explain<CR><CR><CR><CR>#<Space>Documentation<CR><CR><CR><CR>#<Space>Code<CR><CR>```r<CR><CR>#<Space> Documentation<CR><CR>```<Esc>gg2ji
+					\{'path': '~/VimWiki/academia', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/academia/statistics', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/social', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/spirituality', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech/linux', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech/css', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech/html', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech/latex', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech/r', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech/regex', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech/rust', 'syntax': 'markdown', 'ext':'.md'},
+					\{'path': '~/VimWiki/tech/python', 'syntax': 'markdown', 'ext':'.md'}]
 "=================================="
 "          	GOYO	   	   "
 "=================================="
@@ -389,6 +384,21 @@ call plug#end()
 	autocmd Filetype [rR]md inoremap <leader>p `r knitr::include_graphics("")`<Space><++><Esc>F"i
 	autocmd Filetype [rR]md inoremap <leader>sub ~~<++><Esc>F~i
 	autocmd Filetype [rR]md inoremap <leader>sup ^^<++><Esc>F^i
+		"=================================="
+		"	VIMWIKI Markdown Cmd's	   "
+		"=================================="
+			" ~~~~~ Diary Template
+				autocmd FileType markdown nnoremap <leader>diary i#<Space><++><CR><CR><++><CR><CR>##<Space>DevLog<CR><CR><++><CR><CR><Esc>gg
+			" ~~~~~ This is for a vim wiki note template
+				autocmd Filetype markdown inoremap <leader>note #<Space>Explain<CR><CR><CR><CR>#<Space>Documentation<CR><CR><CR><CR>#<Space>Code<CR><CR>```r<CR><CR>#<Space> Documentation<CR><CR>```<Esc>gg2ji
+			" ~~~~~ This inputs a NOW() timestamp
+				autocmd Filetype markdown inoremap <leader>now *<CR><Esc>!!date<CR>A*<Esc>kJxA<CR><CR>
+
+		"=================================="
+		"	   R Development	   "
+		"=================================="
+			" ~~~~~ Open terminal in split for R analysis
+				autocmd FileType *.R,*.Rmd, nnoremap <leader>t :vsp<CR>:terminal<CR>aR<CR>
 "=================================="
 "       	XML		   "
 "=================================="
