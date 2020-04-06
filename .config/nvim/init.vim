@@ -390,7 +390,7 @@ call plug#end()
 			" ~~~~~ Diary Template
 				autocmd FileType markdown nnoremap <leader>diary i#<Space><++><CR><CR><++><CR><CR>##<Space>DevLog<CR><CR><++><CR><CR><Esc>gg
 			" ~~~~~ This is for a vim wiki note template
-				autocmd Filetype markdown inoremap <leader>note #<Space>Explain<CR><CR><CR><CR>#<Space>Documentation<CR><CR><CR><CR>#<Space>Code<CR><CR>```r<CR><CR>#<Space> Documentation<CR><CR>```<Esc>gg2ji
+				autocmd Filetype markdown inoremap <leader>note #<Space>Explain<CR><CR><CR><CR>#<Space>Documentation<CR><CR><++><CR><CR>#<Space>Code<CR><CR>```r<CR><CR>#<Space> Documentation<CR><++><CR><CR>```<Esc>gg2ji
 			" ~~~~~ This inputs a NOW() timestamp
 				autocmd Filetype markdown inoremap <leader>now *<CR><Esc>!!date<CR>A*<Esc>kJxA<CR><CR>
 
