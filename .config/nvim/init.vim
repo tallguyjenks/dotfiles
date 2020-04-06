@@ -284,7 +284,6 @@ call plug#end()
 		autocmd FileType tex inoremap { {}<++><Esc>F{a
 	" ~~~~~ Multi Cursor Begin Statement
 		autocmd FileType tex inoremap ,beg \begin{DELRN}<CR><++><CR>\end{DELRN}<CR><CR><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<CR>c
-		autocmd FileType tex inoremap ,be \begin{BRYAN}<CR><++><CR>\end{BRYAN}<CR><CR><++><Esc>4k0fR:MultipleCursorsFind<Space>BRYAN<CR>c
 	" ~~~~~ Lorum Impsum Test with the Blindtext package
 		autocmd FileType tex inoremap ,lorum {\blindtext}
 	" ~~~~~ Font Formatting:
