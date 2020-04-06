@@ -309,6 +309,7 @@ call plug#end()
 		autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
 		autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
 		autocmd FileType tex inoremap ,fn \footnote{}<Space><++><Esc>T{i
+		autocmd FileType tex inoremap ,fig \begin{figure}[h]<CR>\centering<CR><CR>\caption{<++>}<CR>\label{<++>}<CR>\end{figure}<CR><++><Esc>4kA
 	" ~~~~~ Citations
 		autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
 		autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
@@ -322,8 +323,6 @@ call plug#end()
 		autocmd FileType tex inoremap ,a \href{}{<++>}<Space><++><Esc>2T{i
 	" ~~~~~ Table
 		autocmd FileType tex inoremap ,tab \begin{table}<CR>\centering<CR>\begin{tabular}{<++>}<CR>\hline<CR><++>&<++>&<++>&<++>\\\hline<CR><++><CR>\end{tabular}<CR>\caption{<++>}<CR>\label{<++>}<CR>\end{table}<CR><CR><++><Esc>11kA
-
-
 
 	" ~~~~~ UNSORTED
 		autocmd FileType tex inoremap ,fi \begin{fitch}<CR><CR>\end{fitch}<CR><CR><++><Esc>3kA
