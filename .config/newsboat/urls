@@ -22,6 +22,7 @@ http://twitrss.me/twitter_user_to_rss/?user=HoopleHeadUSA "(Twitter)" "Friend"
 http://twitrss.me/twitter_user_to_rss/?user=ProtonMail "(Twitter)" "Tech"
 
 # (Blogs)
+https://castel.dev/rss.xml "~Gilles Castel" "Tech" "(Blog)"
 https://www.archlinux.org/feeds/news/ "Tech" "Linux"
 https://www.r-bloggers.com/feed "~R-Bloggers" "(Blog)" "R" "Data Science" "Software Engineering"
 https://www.artofmanliness.com/articles/feed/ "~The Art of Manliness (Blog)" "(Blog)" "Manliness"
