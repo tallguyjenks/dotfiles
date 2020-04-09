@@ -23,6 +23,7 @@ http://twitrss.me/twitter_user_to_rss/?user=ProtonMail "(Twitter)" "Tech"
 
 # (Blogs)
 https://castel.dev/rss.xml "~Gilles Castel" "Tech" "(Blog)"
+https://drawings.jvns.ca/index.xml "~Julias Drawings" "Tech" "(Blog)" "Software Engineering"
 https://www.archlinux.org/feeds/news/ "Tech" "Linux"
 https://www.r-bloggers.com/feed "~R-Bloggers" "(Blog)" "R" "Data Science" "Software Engineering"
 https://www.artofmanliness.com/articles/feed/ "~The Art of Manliness (Blog)" "(Blog)" "Manliness"
@@ -38,7 +39,7 @@ https://rss.art19.com/art-of-manliness "~The Art Of Manliness (Podcast)" "Manili
 
 # Self
 https://www.bryanjenks.xyz/rss.xml "(Blog)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfhSB16X9MXhzSFe_H7XbHg "~My Youtube" "(YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfhSB16X9MXhzSFe_H7XbHg "~My Youtube" "(Youtube)"
 http://twitrss.me/twitter_user_to_rss/?user=Tall_Viking "(Twitter)"
 
 #Journals

@@ -87,6 +87,9 @@ call plug#end()
 "=================================="
 "          Miscellaneous	   "
 "=================================="
+	" ~~~~~ Make sure wrapped lines are traversed in a non-dumb way
+		nmap j gj
+		nmap k gk
 	" ~~~~~ Check file in shellcheck:
 		map <leader>s :!clear && shellcheck %<CR>
 	" ~~~~~ Replace all is aliased to S.

@@ -19,23 +19,18 @@ A,slack-desktop,slack for the desktop since slack-term is trash
 ,chronie,cron job management
 ,entr,to run commands on call (autocompiler uses tihs)
 ,task,task warrior back end for task management
-A,https://aur.archlinux.org/taskopen.git ,ability to add notes to tasks
-A,https://aur.archlinux.org/protonmail-bridge.git,for Mutt Wizard to work
-G,https://github.com/LukeSmithxyz/mutt-wizard,for email in the termnial
+A,taskopen,ability to add notes to tasks
+A,protonmail-bridge,for Mutt Wizard to work
+G,mutt-wizard,for email in the termnial
 ,isync,for muttwizard
 ,neomutt,for muttwizard
 ,pass,for muttwizard
 ,msmtp,for muttwizard
 ,abook,for Neomutt address book
-A,https://aur.archlinux.org/taskell-bin.git ,Command line kanban board
+A,taskell,Command line kanban board
 ,tldr,simpler to understand man pages
-G,https://aur.archlinux.org/cortex-git.git,Reddit CLI
-A,https://aur.archlinux.org/gnucash-git.git,GUI Finance Managmenet System
-,asciinema,terminal recording software
 ,jupyter,python notebooks
-,tellico,collection management
 ,biber,reference management in LaTeX
-A,https://aur.archlinux.org/vim-live-latex-preview.git,Live Preview of LaTeX Documents
 ,texlive-most,full LaTeX Install for functionality
 ,texlive-lang,full LaTeX Install for functionality
 A,glow,pretty markdown in the terminal
@@ -45,4 +40,3 @@ A,pastel,color info on hexcodes in terminal
 A,mendeley,academic reference manager and reader
 A,gita,python script for managing mass amounts of git repos
 ,anki,flashcard memorization program
-,,
