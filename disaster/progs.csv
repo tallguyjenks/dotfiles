@@ -42,3 +42,6 @@ A,gita,python script for managing mass amounts of git repos
 ,anki,flashcard memorization program
 ,ctags,indexed searching of sourcecode files via tags
 ,cscope,indexed searching of sourcecode files via tags
+A,bat,rust version of cat. it'a cat++
+A,screenkey,screencasting tool
+,,
