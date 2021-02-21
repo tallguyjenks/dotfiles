@@ -1,6 +1,0 @@
-need to see if calcurse saves items to a file in the system
-if there is a file of these items can it be exported and then re-imported into calcurse?
-if yes then these need to occur:
-
-- add to github repo
-- update **gatherpref** script for gathering this file

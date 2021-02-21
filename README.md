@@ -1,7 +1,4 @@
-# Dot Files
+# General dotfiles
 
-This will be my repo that contains all of my:
-
-- configuration dot files
-- shell scripts
-- disaster recovery files
+> This is a github dotfiles repo mainly for VS Code Codespace personalization first
+> This is not for a Desktop environment configuration
