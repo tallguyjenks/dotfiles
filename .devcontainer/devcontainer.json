@@ -4,16 +4,160 @@
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/zsh"
+		"terminal.integrated.shell.linux": "/bin/zsh",
+		"workbench.editorAssociations": [
+		{
+		    "viewType": "jupyter.notebook.ipynb",
+		    "filenamePattern": "*.ipynb"
+		}
+		],
+		"todo-tree.tree.showScanModeButton": false,
+		"workbench.colorTheme": "Gruvbox Dark Hard",
+		"todo-tree.general.tags": [
+			"BUG",
+			"HACK",
+			"FIXME",
+			"TODO",
+			"HOTFIX",
+			"[ ]",
+			"DOC",
+			"TEST",
+			"QA"
+		],
+		"todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+		"todo-tree.highlights.defaultHighlight": {
+			"icon": "arrow-right",
+			"type": "line",
+			"iconColour": "#ebdbb2",
+			"gutterIcon": true,
+			"fontStyle": "italic"
+		},
+		"todo-tree.highlights.customHighlight": {
+			"BUG": {
+			    "icon": "bug",
+			    "foreground": "#9d0006",
+			    "iconColour": "#9d0006",
+			    "fontWeight": "bold"
+			},
+			"HACK": {
+			    "icon": "alert",
+			    "foreground": "#cc241d",
+			    "iconColour": "#cc241d",
+			    "fontWeight": "bold"
+			},
+			"FIXME": {
+			    "icon": "tools",
+			    "foreground": "#b8bb26",
+			    "iconColour": "#b8bb26",
+			},
+			"TODO": {
+			    "icon": "check-circle",
+			    "foreground": "#d16d0e",
+			    "iconColour": "#d16d0e",
+			},
+			"HOTFIX": {
+			    "icon": "flame",
+			    "foreground": "#fb4934",
+			    "iconColour": "#fb4934",
+			    "fontWeight": "bold"
+			},
+			"[ ]": {
+			    "icon": "check-circle",
+			    "foreground": "#689d6a",
+			    "iconColour": "#689d6a"
+			},
+			"DOC": {
+			    "icon": "book",
+			    "foreground": "#458588",
+			    "iconColour": "#458588"
+			},
+			"TEST": {
+			    "icon": "beaker",
+			    "foreground": "#b16286",
+			    "iconColour": "#b16286"
+			},
+			"QA": {
+			    "icon": "eye",
+			    "foreground": "#d79921",
+			    "iconColour": "#d79921"
+			},
+		},
+		"settingsSync.ignoredSettings": [
+
+		],
+		"foam.graph.style": {
+			//Background color of the entire graph
+			"background": "#1d2021",
+			"font-size": 12,
+			// The little pulses and lines between nodes
+			"highlightedForeground": "#689d6a",
+			"node": {
+			    // Normal Existing Notes Node Color
+			    "note": "#ebdbb2",
+			    // Notes That Dont Exist Yet
+			    "placeholder": "#fb4934"//"#665c54",
+			},
+		},
+		"editor.minimap.enabled": false,
+		"editor.wrappingIndent": "indent",
+		"editor.overviewRulerBorder": false,
+		"editor.lineHeight": 24,
+		"[markdown]": {
+			"editor.quickSuggestions": true
+		},
+		"files.defaultLanguage": "markdown",
+		"files.exclude": {
+			"**/node_modules": true
+		},
+		"files.watcherExclude": {
+			"**/node_modules": true
+		},
+		"foam.edit.linkReferenceDefinitions": "withExtensions",
+		"foam.openDailyNote.directory": "journal",
+		"foam.openDailyNote.titleFormat": "fullDate",
+		"git.enableSmartCommit": true,
+		"git.postCommitCommand": "sync",
+		"markdown.preview.breaks": true,
+		"pasteImage.path": "${projectRoot}/attachments",
+		"pasteImage.showFilePathConfirmInputBox": true,
+		"prettier.singleQuote": false,
+		"spellright.notificationClass": "warning",
+		"vscodeMarkdownNotes.noteCompletionConvention": "noExtension",
+		"vscodeMarkdownNotes.slugifyMethod": "github-slugger",
+		"markdownExtended.disabledPlugins": "kbd"
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"aaron-bond.better-comments",
-		"dendron.dendron",
-		"dendron.dendron-markdown-shortcuts",
-		"dendron.dendron-paste-image",
-		"dendron.dendron-snippet-maker",
+		// Markdown Wiki System. Backlinks, Graph, Search
+		// Templates & More
+		"foam.foam-vscode",
+		// A Massive all in 1 markdown tool
+		"yzhang.markdown-all-in-one",
+		// Wiki-link magic
+		"kortina.vscode-markdown-notes",
+		// Better Markdown Preview
+		"shd101wyy.markdown-preview-enhanced",
+		// Mermaid Chart Rendering
+		"bierner.markdown-mermaid",
+		// Mermaid code syntax highlighting
+		"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+		// Markdown Table Manipulation
+		"takumii.markdowntable",
+		// Make it so you can just paste images and they are handled 
+		// easily such as auto link and send asset to a designated folder
+		"mushan.vscode-paste-image",
+		// View the image upon hovering
+		"kisstkondoros.vscode-gutter-preview",
+		// Footnotes and other extended functionality
+		"jebbs.markdown-extended",	
+		"bierner.markdown-footnotes",
+		// View PDFs in VSCode
+		"tomoki1207.pdf",
+		// Visually indent code with colored block columns
+		"oderwat.indent-rainbow",
+		// If we View CSV files this makes for a great visual experience
+		"mechatroner.rainbow-csv",
 		"gruntfuggly.todo-tree",
 		"jdinhlife.gruvbox",
 		"alefragnani.bookmarks",
