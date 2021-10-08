@@ -103,12 +103,104 @@ source $ZSH/oh-my-zsh.sh
 DISABLE_AUTO_UPDATE=true
 DISABLE_UPDATE_PROMPT=true
 
-alias ga="git add" \
-      gc="git commit" \
-      gp="git push" \
-      gs="git status" \
-      cp="cp -r" \
-	  ll="ls -lA" \
-      v="$EDITOR" \
-      grep="grep --color=auto" \
+# Friendly aliases to use with git in the shell for those that like simplicity
+# Allow vim mode editing on the CLI (<ESC> to enter normal mode)
+set -o vi
+
+alias cp="cp -r"
+alias ll="ls -lA"
+alias grep="grep --color=auto"
+
+alias v="vim"
+alias q="exit"
+alias ga="git add $@"
+alias gA="git add ."
+alias gb="git branch"
+alias gB="git branch $@"
+alias gc=gtype
+alias gC=gtype
+alias gf="git fetch --prune"
+alias gm="git mv $@"
+alias gp="git push"
+alias gpo="git push --set-upstream origin $(git branch --show-current)"
+alias gP="git pull"
+alias gs="git status"
+alias gS="git switch $@"
+alias gwa="git worktree add $@"
+alias ".."="cd .."
+alias mup="git fetch origin prod:prod && git merge prod"
+alias plog="git log --graph --format='%Cgreen%h %Cred%aN%Cblue%d%Creset %s %C(yellow)(%cr)%Creset'"
+
+# Ansi Color Escape Codes For Aesthetic Bash CLI Output
+
+NORMAL='\033[0;39m'
+BLACK='\033[0;30m'
+DARK_GRAY='\033[1;30m'
+RED='\033[0;31m'
+LIGHT_RED='\033[1;31m'
+GREEN='\033[0;32m'
+LIGHT_GREEN='\033[1;32m'
+ORANGE='\033[0;33m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+LIGHT_BLUE='\033[1;34m'
+PURPLE='\033[0;35m'
+LIGHT_PURPLE='\033[1;35m'
+CYAN='\033[0;36m'
+LIGHT_CYAN='\033[1;36m'
+LIGHT_GRAY='\033[0;37m'
+WHITE='\033[1;37m'
+
+
+# Better Git Logs.
+## Using EMOJI-LOG (https://github.com/ahmadawais/Emoji-Log).
+
+gcap() { #This is a helper function that is NEVER called
+    git commit -m "$*" && git push
+}
+
+# NEW.
+gnew() {
+    gcap "📦 NEW: $@"
+}
+
+# IMPROVE.
+gipr() {
+    gcap "👌 IMPROVE: $@"
+}
+
+# FIX.
+gfix() {
+    gcap "🐛 FIX: $@"
+}
+
+# RELEASE.
+grlz() {
+    gcap "🚀 RELEASE: $@"
+}
+
+# DOC.
+gdoc() {
+    gcap "📖 DOC: $@"
+}
+
+# TEST.
+gtst() {
+    gcap "🧪️ TEST: $@"
+}
+
+# BREAKING CHANGE.
+gbrk() {
+    gcap "❗️ BREAKING: $@"
+}
+
+gtype() {
+    echo -e "$GREEN gnew$NORMAL -- 📦 NEW
+$GREEN gipr$NORMAL -- 👌 IMPROVE
+$GREEN gfix$NORMAL -- 🐛 FIX
+$GREEN grlz$NORMAL -- 🚀 RELEASE
+$GREEN gdoc$NORMAL -- 📖 DOC
+$GREEN gtst$NORMAL -- 🧪️ TEST
+$GREEN gbrk$NORMAL -- ❗️ BREAKING"
+}
       
